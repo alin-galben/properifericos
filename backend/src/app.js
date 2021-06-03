@@ -5,6 +5,8 @@ import avataresRoutes from './routes/avatares.routes';
 import enlacesRoutes from './routes/enlaces.routes';
 import entradasRoutes from './routes/entradas.routes';
 import tiendasRoutes from './routes/tiendas.routes';
+import authRoutes from './routes/auth.routes';
+
 const app = express();
 
 app.use(morgan('dev'));
@@ -18,4 +20,6 @@ app.use('/avatares', avataresRoutes);
 app.use('/enlaces', enlacesRoutes);
 app.use('/entradas', entradasRoutes);
 app.use('/tiendas', tiendasRoutes);
+app.use('/api', authRoutes);
+
 export default app;
