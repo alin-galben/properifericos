@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../database');
 
+
 class User extends Model {}
 User.init({
     username: {
@@ -15,10 +16,10 @@ User.init({
         type: DataTypes.STRING,    
         allowNull: false
     },
-    roles: {
-        type: DataTypes.JSON
-    }
+
     
 }, { sequelize, modelName: 'user'});
     
+
+
 module.exports = User;

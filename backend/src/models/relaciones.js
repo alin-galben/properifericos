@@ -1,7 +1,13 @@
-import User from './User'
-import Producto from './Avatar';
-import Enlace from './Enlace';
-import Entrada from './Entrada';
-import Producto from './Producto';
-import Tienda from './Tienda';
+import Role from './Role';
+import User from './User';
 
+/*User.hasMany(Role, { as: "roles" });
+Role.belongsTo(User, {
+  foreignKey: "id",
+  as: "roles",
+});*/
+
+Role.hasMany(User, {
+  foreignKey: 'roles'
+});
+User.belongsToMany(Role)
