@@ -8,13 +8,4 @@ Role.init({
     },
 }, { sequelize, modelName: 'roleSchema', timestamps: false});
 
-User.hasMany(Role, {
-    sourceKey: "id",
-    foreignKey: {
-      name: "roles",
-      allowNull: true,
-    },
-    as: "roles",
-  });
-
 module.exports = Role;
