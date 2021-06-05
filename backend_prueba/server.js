@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./src/models");
 const app = express();
@@ -9,20 +10,25 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
 	res.json({message: 'Welcome'});
 });
 
+// Rutas
+require('./src/routes/auth.routes')(app);
+require('./src/routes/user.routes')(app);
+require('./src/routes/producto.routes')(app);
+
+// Puerto del servidor
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync({force: false}).then(() => {
   console.log("DB Connected");
-  initial();
 }).catch(error => {
   console.log(error);
 })
