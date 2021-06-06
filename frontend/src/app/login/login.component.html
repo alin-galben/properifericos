@@ -1,72 +1,42 @@
-<div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
-      <form
-        *ngIf="!isLoggedIn"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="text"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            #email="ngModel"
-          />
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="email.errors && f.submitted"
-          >
-            Tienes que introducir un email
+  <div class="container w-75 h-100 bg-primary rounded mt-5 shadow" >
+      <div class="row align-items-center align-items-stretch">
+          <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg">     
           </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="5"
-            #password="ngModel"
-          />
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="password.errors && f.submitted"
-          >
-            <div *ngIf="password.errors.required">Introduce la contraseña</div>
+          <div class="col bg-white p-5 col-lg-7 col-xl-6 rounded-end">
+              <h2 class="fw-bold text-center pt-5 mb-5">Inicia sesión.</h2>      
+              <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="mb-2">
+                      <label for="email" class="form-label">Correo electrónico</label> 
+                      
+                      <input type="text" class="form-control" name="email" [(ngModel)]="form.email" required #email="ngModel">
+                  </div>
+                  <label role="alert" *ngIf="email.errors && f.submitted">Debes introducir un correo electronico</label>
+                  
+                  <div class="mb-2 mt-4">
+                      <label for="password" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="5" #password="ngModel">
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+                    Debes introducir una contraseña
+                  </div>
+
+                  <div class="mb-4 form-check">
+                      <input type="checkbox" class="form-check-input" name="connected">
+                      <label class="form-check-label" for="connected">Mantenerme conectado</label>
+                  </div>
+                  <div class="d-grid">
+                      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                  </div>
+
+                  <div class="my-3">
+                      <span>No tienes una cuenta? <a href="/register" path="register">Regístrate ahora</a></span> <br/>
+                      <span><a href="#">Recuperar password</a></span>
+                  </div>
+
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                    El Login ha fallado: {{ errorMessage }}
+                  </div>
+              </form>
           </div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">
-            Login
-          </button>
-        </div>
-        <div class="form-group">
-          <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="f.submitted && isLoginFailed"
-          >
-            El Login ha fallado: {{ errorMessage }}
-          </div>
-        </div>
-      </form>
-  
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Has iniciado sesión como {{ roles }}.
       </div>
-    </div>
   </div>
