@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -16,9 +17,12 @@ export class RegistroComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private irHacia:Router) { }
 
   ngOnInit(): void {
+    if (this.isSuccessful==true) {
+      this.irHacia.navigate(['/registered-succesfully'])
+    }
   }
 
   onSubmit(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { Router } from '@angular/router'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-panel-admin',
@@ -8,8 +10,13 @@ import { UserService } from '../_services/user.service';
 })
 export class PanelAdminComponent implements OnInit {
   content?: string;
+  path = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router, private location: Location) {
+      this.router.events.subscribe((val) => {
+      this.path = this.location.path();
+      });
+  }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe(

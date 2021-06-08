@@ -26,9 +26,7 @@
           />
           <div class="alert-danger" *ngIf="username.errors && f.submitted">
             <div *ngIf="username.errors.required">El usuario es obligatorio</div>
-            <div *ngIf="username.errors.minlength">
-              El nombre de Usuario debe tener al menos 3 caracteres
-            </div>
+            <div *ngIf="username.errors.minlength">El nombre de Usuario debe tener al menos 3 caracteres</div>
             <div *ngIf="username.errors.maxlength">
               El nombre de Usuario tiene que tener menos de 20 caracteres
             </div>
@@ -80,7 +78,7 @@
       </form>
   
       <div class="alert alert-success" *ngIf="isSuccessful">
-        Tu cuenta se ha registrado correctamente
+        <app-home></app-home>
       </div>
     </div>
   </div>

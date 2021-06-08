@@ -1,0 +1,17 @@
+.menu-usuario{
+    margin-right: 100px;
+}
+
+.iniciar-sesion{
+    text-decoration: none;
+    color: white;
+}
+
+.btn-link:hover{
+    color: rgb(182, 182, 182)
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}

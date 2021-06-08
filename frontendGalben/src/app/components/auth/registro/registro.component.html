@@ -1,0 +1,67 @@
+<div *ngIf="!isLoggedIn" class="container-sm h-100 w-95 rounded" >
+    <div class=" align-items-center align-items-stretch">
+        <div class="bg-white p-5 rounded-end">
+            <h2 class="fw-bold text-center pt-3 mb-5">Regístrate.</h2>      
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="mb-1">
+                    <label for="username" class="form-label">Nombre de usuario: </label>    
+                    <input type="text"
+                    class="form-control"
+                    name="username"
+                    [(ngModel)]="form.username"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    #username="ngModel"/>
+                </div>
+                <div *ngIf="username.errors && f.submitted">
+                    <label class="error" role="alert" *ngIf="username.errors.required">*El nombre de usuario es obligatorio.</label>
+                    <label class="error" role="alert" *ngIf="username.errors.minlength">*El nombre de usuario debe tener al menos 3 caracteres.</label>
+                    <label class="error" role="alert" *ngIf="username.errors.maxlength">*El nombre de usuario tiene que tener menos de 20 caracteres.</label>
+                </div>
+
+                <div class="mb-1 mt-4">
+                    <label for="email" class="form-label">Correo electrónico: </label>    
+                    <input type="email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="form.email"
+                    required
+                    email
+                    #email="ngModel"/>
+                </div>
+                <div *ngIf="email.errors && f.submitted">
+                    <label class="error" role="alert" *ngIf="email.errors.required">*Debes introducir un correo electronico.</label>
+                    <label class="error" role="alert" *ngIf="email.errors.email">*Debes introducir un correo electronico valido.</label>
+                </div>
+                <div class="mb-1 mt-4">
+                    <label for="password" class="form-label">Contraseña: </label>
+                    <input type="password"
+                    class="form-control"
+                    name="password"
+                    [(ngModel)]="form.password"
+                    required
+                    minlength="5"
+                    #password="ngModel"/>
+                </div>
+                <div *ngIf="password.errors && f.submitted">
+                    <label class="error mb-2" role="alert" *ngIf="password.errors.required">*Debes introducir una contraseña.</label>
+                    <label class="error mb-2" role="alert" *ngIf="password.errors.minlength">*La contraseña debe tener al menos 5 caracteres.</label>    
+                </div>
+                
+                <div class="d-grid mt-4 form-group">
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                </div>
+
+                <div class="my-3 mb-2">
+                    <span>¿Ya tienes una cuenta? <a href="/login" path="login   ">Inicia sesión ahora</a></span> <br/>
+                </div>
+
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                    El registro ha fallado! {{ errorMessage }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

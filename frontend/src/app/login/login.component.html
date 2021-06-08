@@ -1,10 +1,10 @@
-  <div class="container w-75 h-100 bg-primary rounded mt-5 shadow" >
+  <div *ngIf="!isLoggedIn" class="container w-75 h-100 bg-primary rounded mt-5 shadow" >
       <div class="row align-items-center align-items-stretch">
           <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg">     
           </div>
           <div class="col bg-white p-5 col-lg-7 col-xl-6 rounded-end">
               <h2 class="fw-bold text-center pt-5 mb-5">Inicia sesión.</h2>      
-              <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <div class="mb-2">
                       <label for="email" class="form-label">Correo electrónico</label> 
                       

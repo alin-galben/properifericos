@@ -1,0 +1,50 @@
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Expand at md</a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbarsExample04" style="">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="text-end" *ngIf="!isLoggedIn">
+          <button type="button" routerLink="login" class="btn btn-link me-2 iniciar-sesion">Iniciar Sesión</button>
+          <button type="button" routerLink="registro" class="btn btn-outline-light">Registrarse</button>
+        </div>
+          <div class="dropdown menu-usuario" *ngIf="isLoggedIn">
+            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> {{ username }}    
+            </a>
+            
+            <ul class="dropdown-menu dropdown-menu-sw" aria-labelledby="dropdownUser">
+              <li *ngIf="showAdminBoard">
+                <a href="/admin" class="dropdown-item" routerLink="admin">Panel de Administración</a>
+              </li>
+              <li><a href="/perfil" class="dropdown-item" routerLink="perfil">Perfil</a></li>
+              <li><a class="dropdown-item" href="#">Ajustes</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a href="/home" class="nav-link" (click)="logout()">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+</nav>

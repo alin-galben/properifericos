@@ -1,0 +1,36 @@
+<div *ngIf="!isLoggedIn" class="container-sm h-100 w-95 rounded mt-3" >
+    <div class=" align-items-center align-items-stretch">
+        <div class="bg-white p-5 rounded-end">
+            <h2 class="fw-bold text-center pt-5 mb-5">Inicia sesión.</h2>      
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="mb-1">
+                    <label for="email" class="form-label">Correo electrónico: </label>    
+                    <input type="text" class="form-control" name="email" [(ngModel)]="form.email" required #email="ngModel">
+                </div>
+                <label class="error" role="alert" *ngIf="email.errors && f.submitted">*Debes introducir un correo electronico.</label>
+
+                <div class="mb-1 mt-4">
+                    <label for="password" class="form-label">Contraseña: </label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required #password="ngModel">
+                </div>
+                <label class="error mb-2" role="alert" *ngIf="password.errors && f.submitted">*Debes introducir una contraseña.</label>
+
+                <div class="mb-4 mt-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="connected">
+                    <label class="form-check-label" for="connected">Recordarme</label>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+
+                <div class="my-3 mb-2">
+                    <span>¿No tienes una cuenta? <a href="/registro" path="registro">Regístrate ahora</a></span> <br/>
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                  {{ errorMessage }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
