@@ -2,5 +2,5 @@ export class User {
     id?: any;
     username?: string;
     email?: string;
-    createdAt?: string;
+    createdAt?: Date = new Date();
 }

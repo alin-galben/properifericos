@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
 require('./src/routes/auth.routes')(app);
 require('./src/routes/user.routes')(app);
 require('./src/routes/producto.routes')(app);
+require('./src/routes/avatar.routes')(app);
+require('./src/routes/enlace.routes')(app);
+require('./src/routes/entrada.routes')(app);
+require('./src/routes/tienda.routes')(app);
 
 // Puerto del servidor
 const PORT = process.env.PORT || 8000;

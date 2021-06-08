@@ -5,10 +5,15 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { PerfilComponent } from './components/user/perfil/perfil.component';
-import { PanelAdminComponent } from './components/user/panel-admin/panel-admin.component';
 import { PanelUserComponent } from './components/user/panel-user/panel-user.component';
 import { RegistroValidoComponent } from './components/auth/registro-valido/registro-valido.component';
-import { UsersListComponent} from './components/user/users-list/users-list.component';
+import { DashboardAdminComponent } from './components/user/dashboard-admin/dashboard-admin.component';
+import { UsersListComponent } from './components/user/users-list/users-list.component';
+import { EntradasListComponent } from './components/entrada/entradas-list/entradas-list.component';
+import { ListarProductosComponent } from './components/producto/listar-productos/listar-productos.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { ListarAvataresComponent } from './components/avatar/listar-avatares/listar-avatares.component';
+import { PanelAdminComponent } from './components/user/panel-admin/panel-admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,10 +21,15 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'registro/valido', component: RegistroValidoComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'admin', component: PanelAdminComponent },
+  { path: 'admin', component: PanelAdminComponent},
   { path: 'user', component: PanelUserComponent },
-  { path: 'users', component: UsersListComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'admin/dashboard', component: DashboardAdminComponent },
+  { path: 'admin/users', component: UsersListComponent },
+  { path: 'admin/entradas', component: EntradasListComponent },
+  { path: 'admin/productos', component: ListarProductosComponent },
+  { path: 'admin/estadisticas', component: EstadisticasComponent },
+  { path: 'admin/users', component: UsersListComponent },
 ];
 
 @NgModule({

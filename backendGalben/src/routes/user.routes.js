@@ -14,8 +14,8 @@ module.exports = function(app) {
   app.get("/api/test/user", [authJwt.verifyToken], controller.userBoard);
   app.get("/api/test/admin", [authJwt.verifyToken, authJwt.isAdmin], controller.adminBoard);
 
-  app.get("/api/users", [authJwt.verifyToken, authJwt.isAdmin], controller.getUsers);
-  app.get("/api/users/:id", [authJwt.verifyToken, authJwt.isAdmin], controller.deleteUserById);
-  app.get("/api/users/:id", [authJwt.verifyToken, authJwt.isAdmin], controller.updateUserPasswordById);
-  app.get("/api/users/:id",  [authJwt.verifyToken], controller.getUserById);
+  app.get('/api/users', [authJwt.verifyToken, authJwt.isAdmin], controller.getUsers);
+  app.delete('/api/users/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteUserById);
+  app.put('/api/users/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.updateUserPasswordById);
+  app.get('/api/users/:id',  [authJwt.verifyToken], controller.getUserById);
 };

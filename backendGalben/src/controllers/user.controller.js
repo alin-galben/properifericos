@@ -2,13 +2,13 @@ const db = require("../models");
 const User = db.user;
 
 exports.getUsers = async (req, res) => {
-    const productos = await User.findAll();
-    res.json(productos);
+    const users = await User.findAll();
+    res.json(users);
 }
 
 exports.getUserById = async (req, res) => {
-    const producto = await User.findByPk(req.params.id);
-    res.json(producto);
+    const user = await User.findByPk(req.params.id);
+    res.json(user);
 }
 
 exports.updateUserPasswordById = async (req, res) => {

@@ -13,6 +13,5 @@ module.exports = function(app) {
   app.post('/avatares', [authJwt.verifyToken, authJwt.isAdmin], controller.createAvatar);
   app.get('/avatares', controller.getAvatares);
   app.get('/avatares/:id', controller.getAvatarById);
-  app.put('/avatares/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.updateAvatarById);
   app.delete('/avatares/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteAvatarById);
 };

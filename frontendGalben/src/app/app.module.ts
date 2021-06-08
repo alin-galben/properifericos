@@ -20,6 +20,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistroValidoComponent } from './components/auth/registro-valido/registro-valido.component';
 import { UsersListComponent } from './components/user/users-list/users-list.component';
+import { DashboardAdminComponent } from './components/user/dashboard-admin/dashboard-admin.component';
+import { EntradasListComponent } from './components/entrada/entradas-list/entradas-list.component';
+import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { UsersListComponent } from './components/user/users-list/users-list.comp
     NavbarComponent,
     FooterComponent,
     RegistroValidoComponent,
-    UsersListComponent
+    UsersListComponent,
+    DashboardAdminComponent,
+    EntradasListComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,

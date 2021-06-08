@@ -1,0 +1,16 @@
+.usuario-actual{
+    background-color: aquamarine;
+}
+
+.boton-borrar-actual{
+    display: none;
+}
+
+#message {
+    position: fixed;
+    top: 8%;
+    left: 50%;
+}
+#inner-message {
+    margin: 0 auto;
+}

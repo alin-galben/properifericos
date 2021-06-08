@@ -1,1 +1,46 @@
-<p>listar-avatares works!</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Avatares</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <button class="btn btn-success btn-sm" (click)="subirAvatar(content)">Subir avatar</button>
+    </div>
+</div>
+
+<div *ngIf="avatares.length else empty">
+<tr *ngFor="let avatar of avatares">
+  <th scope="row">{{avatar.id}}</th>
+  <td>{{avatar.username}}</td>
+  <td>{{avatar.email}}</td>
+  <td>{{avatar.createdAt}}</td>
+  <td><button class="btn btn-danger btn-sm" (click)="deleteAvatar(avatar.id);">
+    Borrar
+  </button></td>
+</tr>
+</div>
+
+
+<ng-template #empty>
+  <div class="no-avatar">
+    <h3>No hay ningun avatar . . .</h3>
+    <button type="button" class="btn btn-success btn-lg mt-3" (click)="subirAvatar(content)">Subir avatar</button>
+  </div>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Subir Avatar</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+    <div class="modal-body">
+        <div class="form-group">
+          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cancelar</button>
+      <button type="submit" class="btn btn-success" (click)='subir()'>Subir</button>
+    </div>
+  </form>
+</ng-template>
