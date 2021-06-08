@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user/user.model';
 import { UserService} from '../../../services/user/user.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-users-list',
@@ -13,7 +14,7 @@ export class UsersListComponent implements OnInit {
   currentUser: User = {};
   error= null;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerUsers();
@@ -25,8 +26,8 @@ export class UsersListComponent implements OnInit {
       data=> {
         this.users = data;
       },
-      mensaje => {
-        this.error = JSON.parse(mensaje.error).mensaje;
+      err => {
+        this.router.navigate(['/home'])
       }
     );
   }

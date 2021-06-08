@@ -24,7 +24,7 @@ export class PanelAdminComponent implements OnInit {
         this.content = data;
       },
       err => {
-        this.content = JSON.parse(err.error).message;
+        this.router.navigate(['/home'])
       }
     );
   }
