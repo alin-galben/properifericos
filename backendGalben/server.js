@@ -2,14 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./src/models");
+const { avatar } = require("./src/models");
 const app = express();
 const Role = db.role;
 const User = db.user;
+const Avatar = db.avatar;
+
+var path = require('path');
 
 var corsOptions = {
     origin: "http://localhost:4200"
 };
 
+app.use('/img',express.static(path.join(__dirname, 'resources')));
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +30,8 @@ require('./src/routes/avatar.routes')(app);
 require('./src/routes/enlace.routes')(app);
 require('./src/routes/entrada.routes')(app);
 require('./src/routes/tienda.routes')(app);
+
+global.__basedir = __dirname;
 
 // Puerto del servidor
 const PORT = process.env.PORT || 8000;
@@ -48,4 +55,10 @@ function initial() {
     id: 2,
     nombre: "admin"
   });
+
+  Avatar.create({
+    nombre: "default",
+    imagen: "http://localhost:8000/img/1623290884779-properifericos-default.png"
+  });
+
 }

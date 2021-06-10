@@ -2,3 +2,10 @@
     margin-top: 200px;
     text-align: center;
 }
+
+.avatar{
+    width: 144px;
+    aspect-ratio: auto 144 / 144;
+    height: 144px;
+
+}

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Avatar } from '../../../models/avatar/avatar.model';
 import { AvatarService} from '../../../services/avatar/avatar.service';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../../../services/auth/token-storage.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-listar-avatares',
@@ -15,15 +18,21 @@ export class ListarAvataresComponent implements OnInit {
   closeResult = '';
   avatares?: Avatar[];
   borrado= false;
+  selectedFile: File;
+  
 
   constructor(private avatarService: AvatarService, private router: Router, private tokenStorage: TokenStorageService, private modalService: NgbModal) { }
 
+  
   subirAvatar(content): void {
     this.modalService.open(content, { centered: true });
-    this.listarAvatares();
+  }
+
+  onFileChanged(event) {
   }
 
   subir():void {
+ 
   }
   
   ngOnInit(): void {
@@ -41,5 +50,4 @@ export class ListarAvataresComponent implements OnInit {
       }
     );
   }
-
 }

@@ -1,5 +1,6 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/avatar.controller");
+const upload = require("../middleware/upload");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -10,7 +11,7 @@ module.exports = function(app) {
     next();
   });
 
-  app.post('/avatares', [authJwt.verifyToken, authJwt.isAdmin], controller.createAvatar);
+  app.post('/avatares', [authJwt.verifyToken, authJwt.isAdmin], upload.single("file"), controller.subirAvatar);
   app.get('/avatares', controller.getAvatares);
   app.get('/avatares/:id', controller.getAvatarById);
   app.delete('/avatares/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteAvatarById);
