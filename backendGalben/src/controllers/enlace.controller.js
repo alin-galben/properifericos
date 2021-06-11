@@ -2,9 +2,12 @@ const db = require("../models");
 const Enlace = db.enlace;
 
 exports.createEnlace = async (req, res) => {
-    const {enlace} = req.body;  
+    const {enlace, precio, productoId, tiendaId} = req.body;  
     await Enlace.create({
-        enlace: enlace
+        enlace: enlace,
+        precio: precio,
+        productoId: productoId,
+        tiendaId: tiendaId
     })
     res.status(201).json( { mensaje: 'Enlace creado correctamente' });
 }
@@ -17,16 +20,6 @@ exports.getEnlaces = async (req, res) => {
 exports.getEnlaceById = async (req, res) => {
     const enlace = await Enlace.findByPk(req.params.id);
     res.json(enlace);
-}
-
-exports.updateEnlaceById = async (req, res) => {
-    const {enlace} = req.body;
-    await Enlace.update({
-        enlace: enlace
-    },{
-        where: {id: req.params.id}
-    })
-    res.status(201).json( { mensaje: 'Enlace actualizado correctamente' });
 }
 
 exports.deleteEnlaceById = async (req, res) => {

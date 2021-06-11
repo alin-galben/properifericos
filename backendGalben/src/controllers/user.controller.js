@@ -1,5 +1,7 @@
 const db = require("../models");
 const User = db.user;
+const Role = db.role;
+const Op = db.Sequelize.Op;
 
 exports.getUsers = async (req, res) => {
     const users = await User.findAll();
@@ -11,14 +13,14 @@ exports.getUserById = async (req, res) => {
     res.json(user);
 }
 
-exports.updateUserPasswordById = async (req, res) => {
-    const {password} = req.body;
+exports.updateUserAvatar = async (req, res) => {
+    const {avatarId} = req.body;
     await User.update({
-        password: password
+        avatarId: avatarId
     },{
         where: {id: req.params.id}
     })
-    res.status(200).json( { mensaje: 'Contraseña actualizada' });
+    res.status(200).json( { mensaje: 'Avatar actualizado correctamente' });
 }
 
 exports.deleteUserById = async (req, res) => {

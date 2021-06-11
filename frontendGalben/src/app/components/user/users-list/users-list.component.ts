@@ -31,7 +31,6 @@ export class UsersListComponent implements OnInit {
         this.users = data;
       },
       err => {
-        this.tokenStorage.signOut();
         this.router.navigate(['/home'])
       }
     );

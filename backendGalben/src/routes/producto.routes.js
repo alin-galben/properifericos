@@ -12,6 +12,7 @@ module.exports = function(app) {
 
   app.post('/productos', [authJwt.verifyToken, authJwt.isAdmin], controller.createProducto);
   app.get('/productos', controller.getProductos);
+  app.get('/admin/productos', [authJwt.verifyToken, authJwt.isAdmin], controller.getProductos);
   app.get('/productos/:id', controller.getProductoById);
   app.put('/productos/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.updateProductoById);
   app.delete('/productos/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteProductoById);

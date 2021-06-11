@@ -6,7 +6,6 @@ exports.createProducto = async (req, res) => {
     await Producto.create({
         nombre: nombre,
         categoria: categoria,
-        precio: precio,
         descripcion: descripcion,
         imagen: imagen
     })
@@ -28,7 +27,6 @@ exports.updateProductoById = async (req, res) => {
     await Producto.update({
         nombre: nombre,
         categoria: categoria,
-        precio: precio,
         descripcion: descripcion,
         imagen: imagen
     },{

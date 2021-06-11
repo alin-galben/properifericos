@@ -2,11 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./src/models");
-const { avatar } = require("./src/models");
+const { avatar, tienda } = require("./src/models");
 const app = express();
 const Role = db.role;
 const User = db.user;
 const Avatar = db.avatar;
+const Tienda = db.tienda;
 
 var path = require('path');
 
@@ -57,8 +58,18 @@ function initial() {
   });
 
   Avatar.create({
-    nombre: "default",
-    imagen: "http://localhost:8000/img/1623290884779-properifericos-default.png"
+    nombre: "Avatar",
+    imagen: "http://localhost:8000/img/1623340687204-properifericos-Cat_1.png"
+  });
+
+  Tienda.create({
+    nombre: "PcComponentes",
+    imagen: "https://cdn.pccomponentes.com/img/logos/logo-pccomponentes.svg"
+  });
+
+  Tienda.create({
+    nombre: "Amazon",
+    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/640px-Amazon_logo.svg.png"
   });
 
 }

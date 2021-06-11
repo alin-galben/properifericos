@@ -3,4 +3,5 @@ export class User {
     username?: string;
     email?: string;
     createdAt?: Date = new Date();
+    avatarId?: any;
 }

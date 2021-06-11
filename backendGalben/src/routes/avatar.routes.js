@@ -13,6 +13,7 @@ module.exports = function(app) {
 
   app.post('/avatares', [authJwt.verifyToken, authJwt.isAdmin], upload.single("file"), controller.subirAvatar);
   app.get('/avatares', controller.getAvatares);
+  app.get('/avatares/admin', [authJwt.verifyToken, authJwt.isAdmin], controller.getAvatares);
   app.get('/avatares/:id', controller.getAvatarById);
   app.delete('/avatares/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteAvatarById);
 };

@@ -13,6 +13,5 @@ module.exports = function(app) {
   app.post('/enlaces', [authJwt.verifyToken, authJwt.isAdmin], controller.createEnlace);
   app.get('/enlaces', controller.getEnlaces);
   app.get('/enlaces/:id', controller.getEnlaceById);
-  app.put('/enlaces/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.updateEnlaceById);
   app.delete('/enlaces/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteEnlaceById);
 };

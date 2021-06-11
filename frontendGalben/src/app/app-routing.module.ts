@@ -14,6 +14,7 @@ import { ListarProductosComponent } from './components/producto/listar-productos
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
 import { ListarAvataresComponent } from './components/avatar/listar-avatares/listar-avatares.component';
 import { PanelAdminComponent } from './components/user/panel-admin/panel-admin.component';
+import { InsertarProductoComponent } from './components/producto/insertar-producto/insertar-producto.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,15 +22,16 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'registro/valido', component: RegistroValidoComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'admin', component: PanelAdminComponent},
+  { path: 'panel', component: PanelAdminComponent},
   { path: 'user', component: PanelUserComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'admin/dashboard', component: DashboardAdminComponent },
-  { path: 'admin/users', component: UsersListComponent },
+  { path: 'admin/usuarios', component: UsersListComponent },
   { path: 'admin/entradas', component: EntradasListComponent },
   { path: 'admin/productos', component: ListarProductosComponent },
   { path: 'admin/estadisticas', component: EstadisticasComponent },
-  { path: 'admin/users', component: UsersListComponent },
+  { path: 'admin/avatares', component: ListarAvataresComponent },
+  { path: 'admin/productos/insertar', component: InsertarProductoComponent }
 ];
 
 @NgModule({
