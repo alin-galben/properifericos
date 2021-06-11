@@ -25,9 +25,22 @@ export class ListarProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarProductos();
+    this.permisos();
   }
 
   insertarProducto(): void{
+  }
+
+  permisos(): void{
+    this.productoService.getAllAdmin()
+    .subscribe(
+      data=> {
+        this.productos = data;
+      },
+      err => {
+        this.router.navigate(['/home'])
+      }
+    );
   }
 
   listarProductos(): void{
@@ -72,6 +85,18 @@ export class ListarProductosComponent implements OnInit {
       err => {
         console.log(err)}
     )
+  }
+
+  deleteProducto(id): void {
+    this.productoService.delete(id)
+      .subscribe(
+        response => {
+          this.listarProductos();
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

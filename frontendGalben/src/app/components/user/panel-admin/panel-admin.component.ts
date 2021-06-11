@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {ProductoService} from '../../../services/producto/producto.service';
+import { Producto } from 'src/app/models/producto/producto.model';
 
 @Component({
   selector: 'app-panel-admin',
@@ -7,33 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelAdminComponent implements OnInit {
 
-  tab : any = 'tab1';
-  tab1 : any
-  tab2 : any
-  tab3 : any
-  tab4 : any
-  tab5 : any
-  tab6 : any
-  Clicked : boolean
+  productos?: Producto[];
 
-  constructor() { }
+  constructor(private productoService: ProductoService, private router: Router) { }
 
   ngOnInit(): void {
+    this.permisos();
   }
 
-  onClick(check){
-        if(check==1){
-          this.tab = 'tab1';
-        }else if(check==2){
-          this.tab = 'tab2';
-        }else if(check==3){
-          this.tab = 'tab3';
-        }else if(check==4){
-          this.tab = 'tab4';
-        }else if(check==5){
-          this.tab = 'tab5';
-        }else if(check==6){
-          this.tab = 'tab6';
-        }        
-    }
+  permisos(): void{
+    this.productoService.getAllAdmin()
+    .subscribe(
+      data=> {
+        this.productos = data;
+      },
+      err => {
+        this.router.navigate(['/home'])
+      }
+    );
+  }
 }

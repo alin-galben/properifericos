@@ -16,4 +16,5 @@ module.exports = function(app) {
   app.get('/productos/:id', controller.getProductoById);
   app.put('/productos/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.updateProductoById);
   app.delete('/productos/:id', [authJwt.verifyToken, authJwt.isAdmin], controller.deleteProductoById);
+  app.get('/productos/categoria/:categoria', controller.getProductosCategoria);
 };

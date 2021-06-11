@@ -15,4 +15,8 @@ export class TiendaService {
   getAll(): Observable<Tienda[]> {
     return this.http.get<Tienda[]>(API_URL);
   }
+
+  get(id: any): Observable<Tienda> {
+    return this.http.get(API_URL+id);
+  }
 }

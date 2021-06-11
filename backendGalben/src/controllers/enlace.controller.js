@@ -22,6 +22,18 @@ exports.getEnlaceById = async (req, res) => {
     res.json(enlace);
 }
 
+exports.getEnlacesById = async (req, res) => {
+    const enlace = await Enlace.findAll({
+        where: {
+          productoId: req.params.id
+        }, 
+        order: [
+            ['precio', 'ASC']
+        ],
+      });
+    res.json(enlace);
+}
+
 exports.deleteEnlaceById = async (req, res) => {
     await Enlace.destroy({
         where: {id: req.params.id}

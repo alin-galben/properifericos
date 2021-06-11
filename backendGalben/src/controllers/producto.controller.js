@@ -35,6 +35,15 @@ exports.updateProductoById = async (req, res) => {
     res.status(200).json( { mensaje: 'Producto actualizado correctamente' });
 }
 
+exports.getProductosCategoria = async (req, res) => {
+    const producto = await Producto.findAll({
+        where: {
+          categoria: req.params.categoria
+        }
+      });
+    res.json(producto);
+}
+
 exports.deleteProductoById = async (req, res) => {
     await Producto.destroy({
         where: {id: req.params.id}

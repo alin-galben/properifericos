@@ -1,0 +1,39 @@
+
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">OFERTAS DE OTRA GALAXIA</h1>
+      <!-- Texto de portada del Mediamarkt -->
+      <p class="texto-jumbotron">Aprovecha unos días únicos con ofertas en Smartphones, televisores, electrodomésticos ¡Y mucho más!</p>
+    </div>
+  </div>
+
+  
+<div class="container">
+    <div style="margin-top: 40px;">
+        <hr>
+        <h4 style="font-weight: 600;">Todos los Productos</h4>
+        <hr>
+    </div>
+    <div class="row mt-5" >
+        <div class="col-md-3" *ngFor="let producto of productos">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+                    <div class="product-imitation">
+                        <img class="img-fluid" style="height: 150px;" [src]="producto.imagen">
+                    </div>
+                    <div class="product-desc">
+                        <a href="producto/{{producto.id}}" class="product-name">{{producto.nombre}}</a>
+
+                        <div class="small m-t-xs limitar-descripcion">
+                            {{producto.descripcion}}
+                        </div>
+                        <div class="m-t text-righ">
+
+                            <a href="producto/{{producto.id}}" class="btn btn-xs btn-outline btn-primary">Ver <i class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Enlace } from '../../models/enlace/enlace.model';
 
 const API_URL = 'http://localhost:8000/enlaces/';
+const ENLACE_ID = 'http://localhost:8000/enlaces/producto/';
 
 const httpOptions = { 
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,6 +19,10 @@ export class EnlaceService {
 
   getAll(): Observable<Enlace[]> {
     return this.http.get<Enlace[]>(API_URL);
+  }
+
+  getAllId(id: any): Observable<Enlace> {
+    return this.http.get(ENLACE_ID+id);
   }
 
   getAllAdmin(): Observable<Enlace[]> {

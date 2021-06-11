@@ -15,6 +15,10 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
 import { ListarAvataresComponent } from './components/avatar/listar-avatares/listar-avatares.component';
 import { PanelAdminComponent } from './components/user/panel-admin/panel-admin.component';
 import { InsertarProductoComponent } from './components/producto/insertar-producto/insertar-producto.component';
+import { VerProductoComponent } from './components/producto/ver-producto/ver-producto.component';
+import { ProductosComponent } from './components/producto/productos/productos.component';
+import { ProductosCategoriasComponent } from './components/producto/productos-categorias/productos-categorias.component';
+import { SobreMiComponent } from './components/sobre-mi/sobre-mi.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,7 +35,12 @@ const routes: Routes = [
   { path: 'admin/productos', component: ListarProductosComponent },
   { path: 'admin/estadisticas', component: EstadisticasComponent },
   { path: 'admin/avatares', component: ListarAvataresComponent },
-  { path: 'admin/productos/insertar', component: InsertarProductoComponent }
+  { path: 'admin/productos/insertar', component: InsertarProductoComponent },
+  { path: 'producto/:id', component: VerProductoComponent },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'productos/:categoria', component: ProductosCategoriasComponent },
+  { path: 'sobremi', component: SobreMiComponent}
+
 ];
 
 @NgModule({

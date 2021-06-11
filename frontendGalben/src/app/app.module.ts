@@ -23,6 +23,10 @@ import { UsersListComponent } from './components/user/users-list/users-list.comp
 import { DashboardAdminComponent } from './components/user/dashboard-admin/dashboard-admin.component';
 import { EntradasListComponent } from './components/entrada/entradas-list/entradas-list.component';
 import { EstadisticasComponent } from './components/estadisticas/estadisticas.component';
+import { VerProductoComponent } from './components/producto/ver-producto/ver-producto.component';
+import { ProductosComponent } from './components/producto/productos/productos.component';
+import { ProductosCategoriasComponent } from './components/producto/productos-categorias/productos-categorias.component';
+import { SobreMiComponent } from './components/sobre-mi/sobre-mi.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { EstadisticasComponent } from './components/estadisticas/estadisticas.co
     UsersListComponent,
     DashboardAdminComponent,
     EntradasListComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    VerProductoComponent,
+    ProductosComponent,
+    ProductosCategoriasComponent,
+    SobreMiComponent
   ],
   imports: [
     BrowserModule,

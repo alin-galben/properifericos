@@ -1,0 +1,42 @@
+.contenido {
+	background-image: url(https://i.pinimg.com/originals/1c/16/b5/1c16b56e4b97ef33b865b1ffdd51c0ec.jpg);
+	color: white;
+	background-size: 25px 50px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100vh;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+h2{
+    text-align: center;
+    padding-top: 200px;
+    font-size: 60px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h3{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

@@ -5,6 +5,7 @@ import { Producto } from '../../models/producto/producto.model';
 
 const API_URL = 'http://localhost:8000/productos/';
 const API_URL_ADMIN = 'http://localhost:8000/admin/productos';
+const API_CATEGORIA = 'http://localhost:8000/productos/categoria/';
 
 
 const httpOptions = { 
@@ -28,6 +29,10 @@ export class ProductoService {
 
   get(id: any): Observable<Producto> {
     return this.http.get(API_URL+id);
+  }
+
+  getAllCategoria(categoria: any): Observable<Producto[]> {
+    return this.http.get<Producto[]>(API_CATEGORIA+categoria);
   }
 
 
