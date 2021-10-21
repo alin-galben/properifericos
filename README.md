@@ -6,4 +6,4 @@ Para poder iniciar el proyecto hay que seguir los siguientes pasos:
 
 La dirección en la que se ejecutará el proyecto es: http://localhost:4200/
 
-El usuario para inicias sesión como administrador es "admin@properifericos.com", contraseña  "admin".
+El usuario para iniciar sesión como administrador es "admin@properifericos.com", contraseña  "admin".
